@@ -33,3 +33,14 @@ If you fork the repository, please ensure your fork is private and not visible t
 You may change, rewrite, adapt and improve as much of the app as you like within the constraints above. There is no one right solution, so feel free to impress us!
 
 There is no limit to how long you can take to complete the test, however we suggest it should take around 3 hours. We are not looking for perfection, so feel free to suggest a list of things you would add or improve if you had more time in your NOTES.md file.
+
+---
+
+# Notes by Hafiz 
+
+- Flutter version used: Stable channel version **3.32.5**
+
+### App issues found and applicable fixes
+
+- Issue: The auto generated 'app_localizations.dart' file is missing and its import path is broken in _app.dart_, therefore the app will not compile. 
+Fix: Ran `flutter pub get` command and fixed the package import path in _app.dart_.
