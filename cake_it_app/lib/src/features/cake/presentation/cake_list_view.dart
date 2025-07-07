@@ -9,6 +9,7 @@ import '../data/cake_repository.dart';
 /// Displays a list of cakes.
 class CakeListView extends StatelessWidget {
   CakeListView({super.key}) : cakesNotifier = ValueNotifier<List<Cake>>([]) {
+    // Fetch the cakes when the widget is created.
     _fetchCakes();
   }
 

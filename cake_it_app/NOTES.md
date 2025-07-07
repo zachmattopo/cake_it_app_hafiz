@@ -45,34 +45,34 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 ### App issues found and applicable fixes
 
-- Issue: The auto generated 'app_localizations.dart' file is missing and its import path is broken in _app.dart_, therefore the app will not compile.
+1. Issue: The auto generated 'app_localizations.dart' file is missing and its import path is broken in _app.dart_, therefore the app will not compile.
   Fix: Ran `flutter pub get` command and fixed the package import path in _app.dart_.
 
-- Issue: No error handling for image network requests in cake list view, will cause crashes and poor UX.
+2. Issue: No error handling for image network requests in cake list view, will cause crashes and poor UX.
   Fix: Add error handling for image network requests, show fallback image if needed.
 
-- Issue: Cake image param is being forced unwrapped `!` in `CircleAvatar` widget in cake list view.
+3. Issue: Cake image param is being forced unwrapped `!` in `CircleAvatar` widget in cake list view.
   Fix: Use null-aware operator `??` to provide a default value `''` as the image URL, which will trigger the error builder and show the fallback image.
 
-- Issue: Cake images in cake list view are not clipped correctly in the `CircleAvatar` widget.
+4. Issue: Cake images in cake list view are not clipped correctly in the `CircleAvatar` widget.
   Fix: Use `foregroundImage` and `backgroundImage` params in `CircleAvatar` to show network image and fallback image respectively.
 
-- Issue: From cake list view, static arguments are being passed to the cake details view, cake image is missing as well for the arguments.
+5. Issue: From cake list view, static arguments are being passed to the cake details view, cake image is missing as well for the arguments.
   Fix: In list view - pass the respective `Cake` object arguments to the details view (make the arguments dynamic). In details view - add `Image.network` widget to show the cake's image, refactor `Center` widget to be parent of `Column` widget.
 
-- Issue: In cake details view, the `Column` can overflow if the content is extending past the screen height.
+6. Issue: In cake details view, the `Column` can overflow if the content is extending past the screen height.
   Fix: Add `SingleChildScrollView` widget to enable scrolling when the content is more than the screen height. Also add `SafeArea` widget to avoid overlapping the operating system's UI elements.
 
-- Issue: In settings view, the last `DropdownMenuItem` was wrongly assigned value `ThemeMode.light` instead of `ThemeMode.dark`. 
+7. Issue: In settings view, the last `DropdownMenuItem` was wrongly assigned value `ThemeMode.light` instead of `ThemeMode.dark`. 
   Fix: Update the menu items list to use a `switch-case` statement, so that all the `ThemeMode` enums are exhaustively matched. If not, a compile error will occur signalling an issue.
 
-- Issue: Feature is in a single directory with no separation (e.g. models, views, controller), data fetch is happening on the presentation layer. Harder to scale and maintain.
+8. Issue: Feature is in a single directory with no separation (e.g. models, views, controller), data fetch is happening on the presentation layer. Harder to scale and maintain.
   Fix: Consolidated codes/files into a structured directory (API, data, domain, presentation layers).
 
-- Issue: Unnecessary 2-second wait in the API data fetch.
+9. Issue: Unnecessary 2-second wait in the API data fetch.
   Fix: Remove the 2-second wait, since the `async-await` combo is already there to handle asychronous code.
 
-- Issue: Stateful widget for the cake list view can be replaced with a stateless widget.
+10. Issue: Stateful widget for the cake list view can be replaced with a stateless widget.
   Fix: Replace with a stateless widget, use `ValueNotifier` to listen to changes to the cakes list.
 
 

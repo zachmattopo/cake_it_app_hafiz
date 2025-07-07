@@ -3,6 +3,7 @@ import '../../../api/cake_api.dart';
 
 class CakeRepository {
   final CakeApi api;
+
   CakeRepository({required this.api});
 
   Future<List<Cake>> fetchCakes() async {
