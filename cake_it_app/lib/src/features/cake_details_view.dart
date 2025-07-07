@@ -22,6 +22,8 @@ class CakeDetailsView extends StatelessWidget {
           children: [
             Image.network(
               cake.image ?? '',
+              loadingBuilder: (context, child, loadingProgress) =>
+                  loadingProgress == null ? child : const CircularProgressIndicator(),
               errorBuilder: (context, error, stackTrace) =>
                   Image.asset('assets/images/flutter_logo.png'),
             ),
