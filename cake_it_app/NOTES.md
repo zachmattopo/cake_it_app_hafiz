@@ -1,6 +1,6 @@
 # Waracle Tech Test - Flutter :technologist:
 
-Thanks for applying to Waracle!  The purpose of this test is to assess your skills and understanding of the Dart programming language, Flutter development and software engineering practices.
+Thanks for applying to Waracle! The purpose of this test is to assess your skills and understanding of the Dart programming language, Flutter development and software engineering practices.
 
 The provided a Flutter project is a prototype of a simple app to display a list of cakes with thumbnail images. When a cake is selected, a detail view is shown with a large image.
 
@@ -17,6 +17,7 @@ Unfortunately the prototype has a number of bugs and issues, and also is not par
 ### What we are looking for
 
 In addition to the above requirements above you should:
+
 - Improve the quality of the code / architecture
 - Demonstrate good software engineering practice
 - Update and fill out the file NOTES.md
@@ -36,14 +37,17 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 ---
 
-# Notes by Hafiz 
+# Notes by Hafiz
 
 - Flutter version used: Stable channel version **3.32.5**
 
 ### App issues found and applicable fixes
 
-- Issue: The auto generated 'app_localizations.dart' file is missing and its import path is broken in _app.dart_, therefore the app will not compile. 
-Fix: Ran `flutter pub get` command and fixed the package import path in _app.dart_.
+- Issue: The auto generated 'app_localizations.dart' file is missing and its import path is broken in _app.dart_, therefore the app will not compile.
+  Fix: Ran `flutter pub get` command and fixed the package import path in _app.dart_.
 
 - Issue: No error handling for image network requests in cake list view, will cause crashes and poor UX.
-Fix: Add error handling for image network requests, show fallback image if needed.
+  Fix: Add error handling for image network requests, show fallback image if needed.
+
+- Issue: Cake image param is being forced unwrapped `!` in `CircleAvatar` widget in cake list view.
+  Fix: Use null-aware operator `??` to provide a default value `''` as the image URL, which will trigger the error builder and show the fallback image.

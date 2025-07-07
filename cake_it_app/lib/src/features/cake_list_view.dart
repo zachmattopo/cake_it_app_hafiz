@@ -69,7 +69,7 @@ class _CakeListViewState extends State<CakeListView> {
               subtitle: Text('${cake.description}'),
               leading: CircleAvatar(
                 child: Image.network(
-                  cakes[index].image!,
+                  cakes[index].image ?? '',
                   errorBuilder: (context, error, stackTrace) =>
                       Image.asset('assets/images/flutter_logo.png'),
                 ),
