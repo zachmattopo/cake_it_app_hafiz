@@ -19,37 +19,42 @@ class SettingsView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        // Glue the SettingsController to the theme selection DropdownButton.
-        //
-        // When a user selects a theme from the dropdown list, the
-        // SettingsController is updated, which rebuilds the MaterialApp.
-        child: DropdownButton<ThemeMode>(
-          // Read the selected themeMode from the controller
-          value: controller.themeMode,
-          // Call the updateThemeMode method any time the user selects a theme.
-          onChanged: controller.updateThemeMode,
-          items: ThemeMode.values.map((mode) {
-            String label;
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          // Glue the SettingsController to the theme selection DropdownButton.
+          //
+          // When a user selects a theme from the dropdown list, the
+          // SettingsController is updated, which rebuilds the MaterialApp.
+          child: DropdownButton<ThemeMode>(
+            // Read the selected themeMode from the controller
+            value: controller.themeMode,
+            // Call the updateThemeMode method any time the user selects a theme.
+            onChanged: controller.updateThemeMode,
+            items: ThemeMode.values.map((mode) {
+              String label;
 
-            switch (mode) {
-              case ThemeMode.system:
-                label = 'System Theme';
-                break;
-              case ThemeMode.light:
-                label = 'Light Theme';
-                break;
-              case ThemeMode.dark:
-                label = 'Dark Theme';
-                break;
-            }
+              switch (mode) {
+                case ThemeMode.system:
+                  label = 'System Theme';
+                  break;
+                case ThemeMode.light:
+                  label = 'Light Theme';
+                  break;
+                case ThemeMode.dark:
+                  label = 'Dark Theme';
+                  break;
+              }
 
-            return DropdownMenuItem(
-              value: mode,
-              child: Text(label),
-            );
-          }).toList(),
+              return DropdownMenuItem(
+                value: mode,
+                child: MediaQuery.withClampedTextScaling(
+                  maxScaleFactor: 1.5,
+                  child: Text(label),
+                ),
+              );
+            }).toList(),
+          ),
         ),
       ),
     );
