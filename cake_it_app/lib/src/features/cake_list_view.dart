@@ -70,6 +70,8 @@ class _CakeListViewState extends State<CakeListView> {
               leading: CircleAvatar(
                 child: Image.network(
                   cakes[index].image!,
+                  errorBuilder: (context, error, stackTrace) =>
+                      Image.asset('assets/images/flutter_logo.png'),
                 ),
               ),
               onTap: () {

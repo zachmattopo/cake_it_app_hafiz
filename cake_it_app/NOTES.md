@@ -44,3 +44,6 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 - Issue: The auto generated 'app_localizations.dart' file is missing and its import path is broken in _app.dart_, therefore the app will not compile. 
 Fix: Ran `flutter pub get` command and fixed the package import path in _app.dart_.
+
+- Issue: No error handling for image network requests in cake list view, will cause crashes and poor UX.
+Fix: Add error handling for image network requests, show fallback image if needed.
