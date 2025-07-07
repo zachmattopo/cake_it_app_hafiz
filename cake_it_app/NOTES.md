@@ -62,3 +62,6 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 - Issue: In cake details view, the `Column` can overflow if the content is extending past the screen height.
   Fix: Add `SingleChildScrollView` widget to enable scrolling when the content is more than the screen height. Also add `SafeArea` widget to avoid overlapping the operating system's UI elements.
+
+- Issue: In settings view, the last `DropdownMenuItem` was wrongly assigned value `ThemeMode.light` instead of `ThemeMode.dark`. 
+  Fix: Update the menu items list to use a `switch-case` statement, so that all the `ThemeMode` enums are exhaustively matched. If not, a compile error will occur signalling an issue.
