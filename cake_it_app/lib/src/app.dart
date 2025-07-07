@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:cake_it_app/src/features/cake_details_view.dart';
-import 'package:cake_it_app/src/features/cake_list_view.dart';
+import 'package:cake_it_app/src/features/cake/presentation/cake_details_view.dart';
+import 'package:cake_it_app/src/features/cake/presentation/cake_list_view.dart';
 import 'package:cake_it_app/src/localization/app_localizations.dart';
 
 import 'settings/settings_controller.dart';
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
                     return const CakeDetailsView();
                   case CakeListView.routeName:
                   default:
-                    return const CakeListView();
+                    return CakeListView();
                 }
               },
             );

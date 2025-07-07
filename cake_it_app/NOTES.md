@@ -65,3 +65,14 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 - Issue: In settings view, the last `DropdownMenuItem` was wrongly assigned value `ThemeMode.light` instead of `ThemeMode.dark`. 
   Fix: Update the menu items list to use a `switch-case` statement, so that all the `ThemeMode` enums are exhaustively matched. If not, a compile error will occur signalling an issue.
+
+- Issue: Feature is in a single directory with no separation (e.g. models, views, controller), data fetch is happening on the presentation layer. Harder to scale and maintain.
+  Fix: Consolidated codes/files into a structured directory (API, data, domain, presentation layers).
+
+- Issue: Unnecessary 2-second wait in the API data fetch.
+  Fix: Remove the 2-second wait, since the `async-await` combo is already there to handle asychronous code.
+
+- Issue: Stateful widget for the cake list view can be replaced with a stateless widget.
+  Fix: Replace with a stateless widget, use `ValueNotifier` to listen to changes to the cakes list.
+
+
