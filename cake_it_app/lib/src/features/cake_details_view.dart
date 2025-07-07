@@ -17,19 +17,30 @@ class CakeDetailsView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cake Details'),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Image.network(
-              cake.image ?? '',
-              loadingBuilder: (context, child, loadingProgress) =>
-                  loadingProgress == null ? child : const CircularProgressIndicator(),
-              errorBuilder: (context, error, stackTrace) =>
-                  Image.asset('assets/images/flutter_logo.png'),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                Image.network(
+                  cake.image ?? '',
+                  loadingBuilder: (context, child, loadingProgress) =>
+                      loadingProgress == null ? child : const CircularProgressIndicator(),
+                  errorBuilder: (context, error, stackTrace) =>
+                      Image.asset('assets/images/flutter_logo.png'),
+                ),
+                Text(
+                  '${cake.title}',
+                  style: Theme.of(context).textTheme.titleLarge,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  '${cake.description}',
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            Text('${cake.title}', style: Theme.of(context).textTheme.titleLarge),
-            Text('${cake.description}'),
-          ],
+          ),
         ),
       ),
     );

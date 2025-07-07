@@ -57,3 +57,6 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 - Issue: From cake list view, static arguments are being passed to the cake details view, cake image is missing as well for the arguments.
   Fix: In list view - pass the respective `Cake` object arguments to the details view (make the arguments dynamic). In details view - add `Image.network` widget to show the cake's image, refactor `Center` widget to be parent of `Column` widget.
+
+- Issue: In cake details view, the `Column` can overflow if the content is extending past the screen height.
+  Fix: Add `SingleChildScrollView` widget to enable scrolling when the content is more than the screen height. Also add `SafeArea` widget to avoid overlapping the operating system's UI elements.
