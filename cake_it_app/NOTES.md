@@ -51,3 +51,6 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 - Issue: Cake image param is being forced unwrapped `!` in `CircleAvatar` widget in cake list view.
   Fix: Use null-aware operator `??` to provide a default value `''` as the image URL, which will trigger the error builder and show the fallback image.
+
+- Issue: Cake images in cake list view are not clipped correctly in the `CircleAvatar` widget.
+  Fix: Use `foregroundImage` and `backgroundImage` params in `CircleAvatar` to show network image and fallback image respectively.

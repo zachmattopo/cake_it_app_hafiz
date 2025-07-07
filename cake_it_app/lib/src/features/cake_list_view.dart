@@ -68,11 +68,8 @@ class _CakeListViewState extends State<CakeListView> {
               title: Text('${cake.title}'),
               subtitle: Text('${cake.description}'),
               leading: CircleAvatar(
-                child: Image.network(
-                  cakes[index].image ?? '',
-                  errorBuilder: (context, error, stackTrace) =>
-                      Image.asset('assets/images/flutter_logo.png'),
-                ),
+                foregroundImage: NetworkImage(cakes[index].image ?? ''),
+                backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
               ),
               onTap: () {
                 Navigator.restorablePushNamed(
