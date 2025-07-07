@@ -40,6 +40,8 @@ There is no limit to how long you can take to complete the test, however we sugg
 # Notes by Hafiz
 
 - Flutter version used: Stable channel version **3.32.5**
+- Java version: **21.0.6**
+- Gradle version: **8.5**
 
 ### App issues found and applicable fixes
 
