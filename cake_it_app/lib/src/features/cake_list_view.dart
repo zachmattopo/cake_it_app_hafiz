@@ -75,10 +75,10 @@ class _CakeListViewState extends State<CakeListView> {
                 Navigator.restorablePushNamed(
                   context,
                   CakeDetailsView.routeName,
-                  arguments: const Cake(
-                    title: 'failed cake',
-                    description: 'soggy bottom',
-                    image: 'https://www.example.com',
+                  arguments: Cake(
+                    title: cake.title,
+                    description: cake.description,
+                    image: cake.image,
                   ).toJson(),
                 );
               });

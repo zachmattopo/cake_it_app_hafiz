@@ -11,23 +11,24 @@ class CakeDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     Cake cake = Cake.fromJson(args);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cake Details'),
       ),
-      body: Column(
-        children: [
-          Center(
-            child: Text('${cake.title}',
-                style: Theme.of(context).textTheme.titleLarge),
-          ),
-          Center(
-            child: Text('${cake.description}'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Image.network(
+              cake.image ?? '',
+              errorBuilder: (context, error, stackTrace) =>
+                  Image.asset('assets/images/flutter_logo.png'),
+            ),
+            Text('${cake.title}', style: Theme.of(context).textTheme.titleLarge),
+            Text('${cake.description}'),
+          ],
+        ),
       ),
     );
   }

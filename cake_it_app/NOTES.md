@@ -54,3 +54,6 @@ There is no limit to how long you can take to complete the test, however we sugg
 
 - Issue: Cake images in cake list view are not clipped correctly in the `CircleAvatar` widget.
   Fix: Use `foregroundImage` and `backgroundImage` params in `CircleAvatar` to show network image and fallback image respectively.
+
+- Issue: From cake list view, static arguments are being passed to the cake details view, cake image is missing as well for the arguments.
+  Fix: In list view - pass the respective `Cake` object arguments to the details view (make the arguments dynamic). In details view - add `Image.network` widget to show the cake's image, refactor `Center` widget to be parent of `Column` widget.
