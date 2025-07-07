@@ -78,4 +78,12 @@ There is no limit to how long you can take to complete the test, however we sugg
 11. Issue: Need to add pull-to-refresh feature to the cake list view.
   Fix: Add pull-to-refresh feature to the list view, using `RefreshIndicator.adaptive` which creates an adaptive `RefreshIndicator` depending on the target platform.
 
+### Things to add/improve, given more time and freedom
+
+1. Discuss and define linter rules in _analysis_options.yaml_ early on in the project.
+2. Implement a third-party state management solution to handle managing the current state of the app (e.g. BLoC, Riverpod, Provider, etc.).
+3. Add mapper layer/folder to handle all the object mapping, separate out from the model class (Single Responsibility principle). Easier to test as well.
+4. Handle scenario when API data fetch throws `Exception`, show a snackbar or dialog in the cake list view. Currently will just catch with empty cakes list and show `CircularProgressIndicator` indefinitely.
+5. Add unit tests to mappers and cubits, when they're implemented.
+
 
