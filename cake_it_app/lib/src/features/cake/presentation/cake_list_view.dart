@@ -49,27 +49,31 @@ class CakeListView extends StatelessWidget {
           if (cakes.isEmpty) {
             return const Center(child: CircularProgressIndicator());
           }
-          return ListView.builder(
-            restorationId: 'cakeListView',
-            itemCount: cakes.length,
-            itemBuilder: (BuildContext context, int index) {
-              final cake = cakes[index];
-              return ListTile(
-                title: Text(cake.title ?? ''),
-                subtitle: Text(cake.description ?? ''),
-                leading: CircleAvatar(
-                  foregroundImage: NetworkImage(cake.image ?? ''),
-                  backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
-                ),
-                onTap: () {
-                  Navigator.restorablePushNamed(
-                    context,
-                    CakeDetailsView.routeName,
-                    arguments: cake.toJson(),
-                  );
-                },
-              );
-            },
+          return RefreshIndicator.adaptive(
+            // Fetch the cakes again when user pulls to refresh.
+            onRefresh: _fetchCakes,
+            child: ListView.builder(
+              restorationId: 'cakeListView',
+              itemCount: cakes.length,
+              itemBuilder: (BuildContext context, int index) {
+                final cake = cakes[index];
+                return ListTile(
+                  title: Text(cake.title ?? ''),
+                  subtitle: Text(cake.description ?? ''),
+                  leading: CircleAvatar(
+                    foregroundImage: NetworkImage(cake.image ?? ''),
+                    backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
+                  ),
+                  onTap: () {
+                    Navigator.restorablePushNamed(
+                      context,
+                      CakeDetailsView.routeName,
+                      arguments: cake.toJson(),
+                    );
+                  },
+                );
+              },
+            ),
           );
         },
       ),

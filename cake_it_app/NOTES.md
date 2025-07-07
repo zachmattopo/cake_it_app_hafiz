@@ -75,4 +75,7 @@ There is no limit to how long you can take to complete the test, however we sugg
 10. Issue: Stateful widget for the cake list view can be replaced with a stateless widget.
   Fix: Replace with a stateless widget, use `ValueNotifier` to listen to changes to the cakes list.
 
+11. Issue: Need to add pull-to-refresh feature to the cake list view.
+  Fix: Add pull-to-refresh feature to the list view, using `RefreshIndicator.adaptive` which creates an adaptive `RefreshIndicator` depending on the target platform.
+
 
