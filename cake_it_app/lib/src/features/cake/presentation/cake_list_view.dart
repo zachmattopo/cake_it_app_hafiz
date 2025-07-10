@@ -58,10 +58,10 @@ class CakeListView extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final cake = cakes[index];
                 return ListTile(
-                  title: Text(cake.title ?? ''),
-                  subtitle: Text(cake.description ?? ''),
+                  title: Text(cake.title),
+                  subtitle: Text(cake.description),
                   leading: CircleAvatar(
-                    foregroundImage: NetworkImage(cake.image ?? ''),
+                    foregroundImage: NetworkImage(cake.image),
                     backgroundImage: const AssetImage('assets/images/flutter_logo.png'),
                   ),
                   onTap: () {

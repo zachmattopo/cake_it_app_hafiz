@@ -28,14 +28,5 @@ void main() {
       expect(json['desc'], 'Not technically a cake');
       expect(json['image'], 'http://example.com/donut.png');
     });
-
-    test('handles null fields', () {
-      const cake = Cake();
-      final json = cake.toJson();
-
-      expect(json['title'], null);
-      expect(json['desc'], null);
-      expect(json['image'], null);
-    });
   });
 }

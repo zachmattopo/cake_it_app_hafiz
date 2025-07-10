@@ -23,19 +23,19 @@ class CakeDetailsView extends StatelessWidget {
             child: Column(
               children: [
                 Image.network(
-                  cake.image ?? '',
+                  cake.image,
                   loadingBuilder: (context, child, loadingProgress) =>
                       loadingProgress == null ? child : const CircularProgressIndicator(),
                   errorBuilder: (context, error, stackTrace) =>
                       Image.asset('assets/images/flutter_logo.png'),
                 ),
                 Text(
-                  '${cake.title}',
+                  cake.title,
                   style: Theme.of(context).textTheme.titleLarge,
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  '${cake.description}',
+                  cake.description,
                   textAlign: TextAlign.center,
                 ),
               ],

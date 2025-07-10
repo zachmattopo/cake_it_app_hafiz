@@ -1,14 +1,14 @@
 /// A placeholder class that represents an entity or model.
 class Cake {
   const Cake({
-    this.title,
-    this.description,
-    this.image,
+    required this.title,
+    required this.description,
+    required this.image,
   });
 
-  final String? title;
-  final String? description;
-  final String? image;
+  final String title;
+  final String description;
+  final String image;
 
   factory Cake.fromJson(Map<String, dynamic> json) {
     return Cake(

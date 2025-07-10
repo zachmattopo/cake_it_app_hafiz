@@ -78,6 +78,9 @@ There is no limit to how long you can take to complete the test, however we sugg
 11. Issue: Need to add pull-to-refresh feature to the cake list view.
   Fix: Add pull-to-refresh feature to the list view, using `RefreshIndicator.adaptive` which creates an adaptive `RefreshIndicator` depending on the target platform.
 
+12. Issue: `Cake` model class is using nullable fields unnecessarily, prone to errors when mishandled.
+  Fix: Convert all nullable fields into non-nullable.
+
 ### Things to add/improve, given more time and freedom
 
 1. Discuss and define linter rules in _analysis_options.yaml_ early on in the project.
